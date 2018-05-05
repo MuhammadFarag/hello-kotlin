@@ -268,3 +268,5 @@ JavaLibrary.nullableValue2.length
 ```
 
 The compiler will complain if it can detect that you are making an unsafe "trust" assumption, but it can't do that all the time. IntelliJ wasn't able to help there though.
+
+Final note all nullable types are subtype of `Any?` vs concrete types which are subtype of `Any`

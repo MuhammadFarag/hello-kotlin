@@ -10,17 +10,12 @@ fun main(args: Array<String>) {
 }
 
 fun babyGreetings(child: Child): String =
-when {
-    child is Girl -> "Hi ${child.girlName}, little girl"
-    child is Boy && child.age <= 1 -> "Hi ${child.boyName}, little baby boy"
-    child is Boy -> "Hi ${child.boyName}"
-    else -> "Hi"
-}
-
-
-enum class Colour {
-    PINK, BABY_BLUE
-}
+        when {
+            child is Girl -> "Hi ${child.girlName}, little girl"
+            child is Boy && child.age <= 1 -> "Hi ${child.boyName}, little baby boy"
+            child is Boy -> "Hi ${child.boyName}"
+            else -> "Hi"
+        }
 
 interface Child
 

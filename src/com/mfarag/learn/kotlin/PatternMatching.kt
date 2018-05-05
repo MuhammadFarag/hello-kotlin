@@ -3,25 +3,26 @@ package com.mfarag.learn.kotlin
 
 fun main(args: Array<String>) {
     val girl = Girl("Sophie")
-    val boy = Boy("Jack")
+    val boy = Boy("Jack", 7)
     println(babyGreetings(girl))
     println(babyGreetings(boy))
 
 }
 
-fun babyGreetings(baby: Baby): String =
-        when (baby) {
-            is Girl -> "Hi ${baby.girlName}, little baby girl"
-            is Boy -> "Hi ${baby.boyName}, little baby boy"
-            else -> "Hi little baby"
-        }
+fun babyGreetings(child: Child): String =
+when {
+    child is Girl -> "Hi ${child.girlName}, little girl"
+    child is Boy && child.age <= 1 -> "Hi ${child.boyName}, little baby boy"
+    child is Boy -> "Hi ${child.boyName}"
+    else -> "Hi"
+}
 
 
 enum class Colour {
     PINK, BABY_BLUE
 }
 
-interface Baby
+interface Child
 
-class Boy(val boyName: String) : Baby
-class Girl(val girlName: String) : Baby
+class Boy(val boyName: String, val age: Int) : Child
+class Girl(val girlName: String) : Child

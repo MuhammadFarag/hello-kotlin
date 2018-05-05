@@ -12,12 +12,21 @@ What I have found that is intersting so far:
 - Scala `extends` turns to be a `:`. So we have `class ClassName : SomeInterface`
 
 ## Pattern matching
-
+### Simple pattern matching
 ```kotlin
 when (baby) {
     is Girl -> "Hi ${baby.girlName}, little baby girl"
     is Boy -> "Hi ${baby.boyName}, little baby boy"
     else -> "Hi little baby"
+}
+```
+### Tad more complex pattern matching
+```Kotlin
+when {
+    child is Girl -> "Hi ${child.girlName}, little girl"
+    child is Boy && child.age <= 1 -> "Hi ${child.boyName}, little baby boy"
+    child is Boy -> "Hi ${child.boyName}"
+    else -> "Hi"
 }
 ```
 

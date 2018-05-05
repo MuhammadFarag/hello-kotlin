@@ -69,3 +69,4 @@ for (i in 100 downTo 0 step 2){
 }
 ```
 The count up with no step is simpler `for (i in 0..10)`, again both 0 and 10 are included.
+Interestingly you can also use `for(c in 'A'..'Z')`

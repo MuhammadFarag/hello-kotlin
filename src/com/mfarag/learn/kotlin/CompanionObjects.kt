@@ -7,6 +7,12 @@ fun main(args: Array<String>) {
     println(Items.AnotherBuilder.fromAnotherString("1,2,3").items.first())
     Items.fromString("1").playWithEmpty()
 
+
+
+    fun Items.Builder.firstExtensionMethod() = println("I am an extension method")
+
+    Items.firstExtensionMethod()
+    Items.Builder.firstExtensionMethod()
 }
 
 data class Items(val items: List<Int>) {

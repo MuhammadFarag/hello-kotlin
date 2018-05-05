@@ -175,3 +175,12 @@ println(Items.Builder.fromString("1,2,3").items.first()) // valid and does the s
 ```
 
 It seems that the primary difference between the two approaches (having or omitting the companion object name) is how you call it from Java. Without explicit naming you would use `Items.Companion.fromString(...)` with the name, you'd use `Items.Builder.fromString(...)`.
+
+Extending a companion object:
+
+```kotlin
+fun Items.Builder.firstExtensionMethod() = println("I am an extension method")
+
+Items.firstExtensionMethod()
+Items.Builder.firstExtensionMethod()
+```

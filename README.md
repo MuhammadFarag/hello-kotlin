@@ -197,3 +197,14 @@ println("The shortest name is: ${names.minBy { it.length }}")
 
 println("The longest name is: ${names.maxBy(String::length)}")
 ```
+
+## Option Type (nullable)
+Kotlin doesn't have option type. It has what I might consider a better alternative. if you try this in Kotlin the compiler will scream right at you, you just can't do it:
+```kotlin
+val x:String = null
+```
+But how do you manage `null` or in Scala type `Option` which can be `Some` or `None`? Here is how:
+```kotlin
+val x:String? = null
+```
+By adding `?` after your type on declaration, it let's the compiler know that you have no clue. Using the analogy to Scala. This is like declaring an `Option` which maybe hold a value (i.e. `Some`) or be `null` (i.e. `None`)

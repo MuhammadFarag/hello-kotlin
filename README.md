@@ -108,7 +108,12 @@ val x: Int = try {
 ```
 
 ## Extending existing Classes
-With Scala we use an implicit class with one argument constructor, which is the type we want to extend. In Kotlin, the syntax is:
+With Scala we use an implicit class with one argument constructor, which is the type we want to extend. In Kotlin, the syntax for extension functions is:
 ```kotlin
 fun String.numberOfAs(): Int = this.count { it == 'A' || it == 'a' }
+```
+or you can use extention properties syntax:
+```kotlin
+val String.numberOfBs: Int
+    get() = this.count { it == 'A' || it == 'a' }
 ```

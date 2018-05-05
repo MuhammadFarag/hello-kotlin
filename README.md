@@ -267,4 +267,4 @@ JavaLibrary.nullableValue1?.length
 JavaLibrary.nullableValue2.length
 ```
 
-The compiler will complain if it can detect that you are making an unsafe "trust" assumption, but it can't do that all the time. IntelliJ wasn't able to help their though.
+The compiler will complain if it can detect that you are making an unsafe "trust" assumption, but it can't do that all the time. IntelliJ wasn't able to help there though.

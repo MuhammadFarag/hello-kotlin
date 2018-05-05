@@ -257,3 +257,14 @@ Final interesting thing. if you have a value that will be initialized evantually
 ```kotlin
 lateinit var varName:String
 ```
+
+In Scala we used to wrap values coming from Java libraries in an Option when we know that it might be null. Kotlin has a similar approach
+```kotlin
+val notTrusted: String? = JavaLibrary.nullableValue1
+val trusted: String = JavaLibrary.nullableValue2
+
+JavaLibrary.nullableValue1?.length
+JavaLibrary.nullableValue2.length
+```
+
+The compiler will complain if it can detect that you are making an unsafe "trust" assumption, but it can't do that all the time. IntelliJ wasn't able to help their though.

@@ -6,7 +6,9 @@ fun main(args: Array<String>) {
     val stillNullable1: String? = if (nullableVariable != null) nullableVariable.toUpperCase() else null
     val stillNullable2: Int? = nullableVariable?.toUpperCase()?.dropLast(1)?.length
 
-    val notNullableAnyMore: String = nullableVariable?: "I can breath!"
+    val notNullableAnyMore1: String = nullableVariable?: "I can breath!"
+    val notNullableAnyMore2: String = nullableVariable!!.toUpperCase()
+
 
 
 }

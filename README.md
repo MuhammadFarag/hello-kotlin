@@ -229,3 +229,11 @@ You are probably asking... what about `getOrElse`. Well, Kotlin gave us the `elv
 ```kotlin
 val notNullableAnyMore: String = nullableVariable?: "I can breath!"
 ```
+
+If for some reason, you rather have a null pointer exception. You can just use `!!` operator. Which feels like "I am insane let me do whatever I want". The following code will give you a lovely NP the variable is null.
+```kotlin
+val notNullableAnyMore2: String = nullableVariable!!.toUpperCase()
+```
+
+>Just a note, some people have the twisted tendancy to manage their program flow using unchecked exceptions. Please, don't be one of those.
+

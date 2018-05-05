@@ -29,6 +29,24 @@ when {
     else -> "Hi"
 }
 ```
+### Sealed classes
+To define a sealed class:
+```kotlin
+sealed class Colour(val english: String) {
+    class Red : Colour("Red")
+    class Green : Colour("Green")
+    class Orange : Colour("Orange")
+}
+```
+In the previous examples for pattern matching, we have noticed the `else -> ...` segment, which is required when classes are not sealed. With sealed classes. This is not the case. Let's extend the previous example
+```kotlin
+fun Colour.french(): String = when (this) {
+    is Colour.Red -> "Rouge"
+    is Colour.Green -> "Vert"
+    is Colour.Orange -> "Orange"
+}
+```
+Intellij IDEA will give you the option to fill all the options evaluating it to `TODO()`, which is similar Scala's `???`. or else, if you have implemented one of the options, and want to default on the rest.
 
 ## Functions
 - we define a function using `fun` instead of `def`.

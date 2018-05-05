@@ -58,3 +58,9 @@ val age: Int
 ```
 
 I believe in Scala, you can't tie a custom getter or setter to the same val/var. you will have a different private val, which you might call `_age` and then use two methods to get and set that variable as needed, I believe something in the lines of `def age:Int` and `def age_=(age:Int)`. I might be a big fuzzy on this, didn't use it since forever.
+
+## Iterators
+```kotlin
+for (i in 100 downTo 1 step 2){
+    // Do something
+}

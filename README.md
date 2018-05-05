@@ -32,7 +32,7 @@ when {
 
 ## Functions
 - we define a function using `fun` instead of `def`.
-- `return` can only be omitted for single expression functions, but not for block functions.
+- `return` can only be omitted for single expression functions, but not for block functions. Note, that other than that case, the last expression in a block is its result.
 - Functions can live at the root livel of any Kotlin file. There is no concept of package objects (as far as I have seen so far).
 ```
 package ...

@@ -151,6 +151,20 @@ data class Items(val items: List<Int>) {
     }
 }
 
+data class Items(val items: List<Int>) {
+
+    fun playWithEmpty() {
+        test()
+        Builder.test()
+    }
+
+
+    companion object Builder {
+        fun fromString(s: String): Items = Items(s.split(",").map { it.toInt() })
+        fun test() = println("builder test")
+    }
+}
+
 ```
 
 If you choose to have a name for your companion object, you can access its members either directly, or by qualifying them by the name. This is not only inside the class, but wherever the class is called, for an example:

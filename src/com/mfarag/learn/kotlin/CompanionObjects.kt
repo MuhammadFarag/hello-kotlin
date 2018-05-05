@@ -5,22 +5,26 @@ fun main(args: Array<String>) {
     println(Items.Builder.fromString("1,2,3").items.first())
     println(Items.fromString("1,2,3").items.first())
     println(Items.AnotherBuilder.fromAnotherString("1,2,3").items.first())
+    Items.fromString("1").playWithEmpty()
+
 }
 
 data class Items(val items: List<Int>) {
 
-    val emptyItems = empty()
-    val emptyItems2 = Builder.empty()
+    fun playWithEmpty() {
+        test()
+        Builder.test()
+        AnotherBuilder.anotherTest()
+    }
 
-    val anotherEmptyItems = AnotherBuilder.anotherEmpty()
 
     companion object Builder {
         fun fromString(s: String): Items = Items(s.split(",").map { it.toInt() })
-        fun empty(): Items = Items(listOf())
+        fun test() = println("builder test")
     }
 
     object AnotherBuilder {
         fun fromAnotherString(s: String): Items = Items(s.split(",").map { it.toInt() })
-        fun anotherEmpty(): Items = Items(listOf())
+        fun anotherTest() = println("another builder test")
     }
 }

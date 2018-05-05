@@ -208,3 +208,19 @@ But how do you manage `null` or in Scala type `Option` which can be `Some` or `N
 val x:String? = null
 ```
 By adding `?` after your type on declaration, it let's the compiler know that you have no clue. Using the analogy to Scala. This is like declaring an `Option` which maybe hold a value (i.e. `Some`) or be `null` (i.e. `None`)
+
+The following wil still return a nullable, but you are forced to do the null check
+
+```kotlin
+val stillNullable:String? = if (nullableVariable != null) nullableVariable.toUpperCase() else null
+```
+
+This pattern is so common that it has its own operator, this is exactly equivelant to
+```kotlin
+val stillNullable:String? = nullableVariable?.toUpperCase()
+```
+
+We can use the `safe-call` operator to simulate something similar to mapping on options in Scala
+```kotlin
+val stillNullable2: Int? = nullableVariable?.toUpperCase()?.dropLast(1)?.length
+```

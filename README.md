@@ -224,3 +224,8 @@ We can use the `safe-call` operator to simulate something similar to mapping on 
 ```kotlin
 val stillNullable2: Int? = nullableVariable?.toUpperCase()?.dropLast(1)?.length
 ```
+
+You are probably asking... what about `getOrElse`. Well, Kotlin gave us the `elvis-operator` (you tell me!), which is `?:`
+```kotlin
+val notNullableAnyMore: String = nullableVariable?: "I can breath!"
+```

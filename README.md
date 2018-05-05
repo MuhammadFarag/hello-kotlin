@@ -11,6 +11,16 @@ What I have found that is intersting so far:
 
 - Scala `extends` turns to be a `:`. So we have `class ClassName : SomeInterface`
 
+## Pattern matching
+
+```kotlin
+when (baby) {
+    is Girl -> "Hi ${baby.girlName}, little baby girl"
+    is Boy -> "Hi ${baby.boyName}, little baby boy"
+    else -> "Hi little baby"
+}
+```
+
 ## Functions
 - we define a function using `fun` instead of `def`.
 - `return` can only be omitted for single expression functions, but not for block functions.

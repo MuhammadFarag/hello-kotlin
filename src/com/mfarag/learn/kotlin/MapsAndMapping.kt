@@ -5,4 +5,9 @@ fun main(args: Array<String>) {
     for ((name, age) in nameAndAge) {
         println("My name is $name and I am $age years old")
     }
+
+    val names = listOf("Muhammad", "Justin")
+    for ((index, name) in names.withIndex()) {
+        println("$index: $name")
+    }
 }

@@ -79,3 +79,12 @@ for ((name, age) in nameAndAge) {
     println("My name is $name and I am $age years old")
 }
 ```
+
+### Iterating over collections with indexes
+
+```kotlin
+val names = listOf("Muhammad", "Justin")
+for ( (index, name) in names.withIndex()){
+    println("$index: $name")
+}
+```

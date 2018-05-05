@@ -184,3 +184,16 @@ fun Items.Builder.firstExtensionMethod() = println("I am an extension method")
 Items.firstExtensionMethod()
 Items.Builder.firstExtensionMethod()
 ```
+
+## Lambdas
+Lambda has to be surrounded by curly braces.
+```kotlin
+val names = listOf("Muhammad", "Justin")
+
+val lambda: (String) -> Int = { it.length }
+println("The shortest name is: ${names.minBy(lambda)}")
+
+println("The shortest name is: ${names.minBy { it.length }}")
+
+println("The longest name is: ${names.maxBy(String::length)}")
+```

@@ -11,5 +11,10 @@ fun main(args: Array<String>) {
         println("$index: $name")
     }
 
+    println("The longest name is: ${names.maxBy(String::length)}")
+    val lambda: (String) -> Int = { it.length }
+    println("The shortest name is: ${names.minBy(lambda)}")
+
     if ("Kate" !in names) println("Kate is not here")
+
 }

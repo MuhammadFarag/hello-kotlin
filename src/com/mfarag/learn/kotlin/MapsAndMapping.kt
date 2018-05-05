@@ -10,4 +10,6 @@ fun main(args: Array<String>) {
     for ((index, name) in names.withIndex()) {
         println("$index: $name")
     }
+
+    if ("Kate" !in names) println("Kate is not here")
 }

@@ -88,3 +88,10 @@ for ( (index, name) in names.withIndex()){
     println("$index: $name")
 }
 ```
+
+To check if an element exists in a collection we use the keywords `in` and `!in`
+
+```kotlin
+val names = listOf("Muhammad", "Justin")
+if ("Kate" !in names) println("Kate is not here")
+```

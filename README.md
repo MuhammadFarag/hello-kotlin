@@ -10,7 +10,16 @@ What I have found that is intersting so far:
 ### Functions
 - we define a function using `fun` instead of `def`.
 - `return` can only be omitted for single expression functions, but not for block functions.
+- Functions can live at the root livel of any Kotlin file. There is no concept of package objects (as far as I have seen so far).
+```
+package ...
 
+import ...
+
+fun someFunction{
+  ...
+}
+```
 
 ## Getters and Setters
 - If you have a Java class that has getters and setters for some property, i.e. `getSomeProperty` and `setSomeProperty`, Kotlin let's you use it as a property directly, instead of using the methods, i.e. `val x = instance.someProperty` and `instance.someProperty = someValue`.

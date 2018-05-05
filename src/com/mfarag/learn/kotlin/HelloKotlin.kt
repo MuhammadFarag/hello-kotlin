@@ -12,4 +12,14 @@ class Person(val name: String, private val yearOfBirth: Int) {
         get() {
             return LocalDate.now().year - yearOfBirth
         }
+
+    fun bornBefore(year: Int): Boolean = when (setOf(year, yearOfBirth)) {
+        setOf(year, yearOfBirth) -> yearOfBirth <= year
+        else -> false
+    }
+
+    fun bornInOrAfter(year: Int): Boolean = when {
+        yearOfBirth >= year -> true
+        else -> false
+    }
 }

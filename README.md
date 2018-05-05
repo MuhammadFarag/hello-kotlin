@@ -251,3 +251,9 @@ and
 ```kotlin
 nullableVariable.let{ println(it)}
 ```
+
+Final interesting thing. if you have a value that will be initialized evantually, but not in the constructor. For an example via a dependency injection framework or due to framework limitations. you can use `lateinit` on declaration instead of using `!!` everywhere. That is basically your usual Java behaviour.
+
+```kotlin
+lateinit var varName:String
+```

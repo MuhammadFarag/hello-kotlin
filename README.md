@@ -95,3 +95,14 @@ To check if an element exists in a collection we use the keywords `in` and `!in`
 val names = listOf("Muhammad", "Justin")
 if ("Kate" !in names) println("Kate is not here")
 ```
+
+## Try-catch
+
+Returnign default value in case of exception:
+```
+val x: Int = try {
+    throw Exception()
+} catch (e: Exception) {
+    0
+}
+```

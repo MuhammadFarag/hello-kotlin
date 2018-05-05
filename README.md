@@ -135,3 +135,27 @@ or you can use extention properties syntax:
 val String.numberOfBs: Int
     get() = this.count { it == 'A' || it == 'a' }
 ```
+
+### Companion object
+Scala requires a companion object to have the same name as its companion class and it has to be in the same file. In Kotlin however it is required to be within the class and use the keywords `companion object`. Object name in that case is optional, which makes things a bit interesting. And finally you can have only one companion object within your class.
+
+```kotlin
+data class Items(val items: List<Int>) {
+
+    val emptyItems = empty()
+    val anotherEmptyItems = Builder.empty()
+
+    companion object Builder {
+        fun fromString(s: String): Items = Items(s.split(",").map { it.toInt() })
+        fun empty(): Items = Items(listOf())
+    }
+}
+
+```
+
+If you choose to have a name for your companion object, you can access its members either directly, or by qualifying them by the name. This is not only inside the class, but wherever the class is called, for an example:
+
+```kotlin
+println(Items.fromString("1,2,3").items.first()) // valid
+println(Items.Builder.fromString("1,2,3").items.first()) // valid and does the same thing
+```

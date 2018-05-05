@@ -237,3 +237,17 @@ val notNullableAnyMore2: String = nullableVariable!!.toUpperCase()
 
 >Just a note, some people have the twisted tendancy to manage their program flow using unchecked exceptions. Please, don't be one of those.
 
+How about something resimpling `foreach` on an option... Kotlin gave us `let`
+
+```kotlin
+nullable?.let {notNullable -> doSomething(notNullable)}
+```
+
+On an interesting note, both of the following variations compiled and ran for me 🤷🏽‍♂️:
+```kotlin
+nullableVariable?.let{ println(it)}
+```
+and
+```kotlin
+nullableVariable.let{ println(it)}
+```

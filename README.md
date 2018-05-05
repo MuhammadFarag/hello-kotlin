@@ -1,6 +1,6 @@
 # Hello Kotlin
 
-Discovering Kotlin coming from Scala.
+Discovering Kotlin coming from Scala. I am going throght [Kotlin in Action](https://www.manning.com/books/kotlin-in-action), trying few simple examples and writing my notes in the process.
 
 What I have found that is intersting so far:
 - main method (entry point to the program) doesn't need to be in an object.

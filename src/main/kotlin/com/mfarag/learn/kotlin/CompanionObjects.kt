@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     println(Items.Builder.fromString("1,2,3").items.first())
     println(Items.fromString("1,2,3").items.first())
     println(Items.AnotherBuilder.fromAnotherString("1,2,3").items.first())
-    Items.fromString("1").playWithEmpty()
+    Items.fromString("1").playWithTest()
 
 
 
@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
 
 data class Items(val items: List<Int>) {
 
-    fun playWithEmpty() {
+    fun playWithTest() {
         test()
         Builder.test()
         AnotherBuilder.anotherTest()

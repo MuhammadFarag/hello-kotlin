@@ -1,10 +1,10 @@
 # Hello Kotlin
 
-Discovering Kotlin coming from Scala. I am going throght [Kotlin in Action](https://www.manning.com/books/kotlin-in-action), trying few simple examples and writing my notes in the process.
+I am discovering Kotlin coming from Scala. I am going through [Kotlin in Action](https://www.manning.com/books/kotlin-in-action), trying few simple examples and writing my notes in the process.
 
-What I have found that is intersting so far:
+## General Notes
 - main method (entry point to the program) doesn't need to be in an object.
-- String interpolation, it is similar to Scala except that you don't need to use 's' character before the opening qoute. In Scala `println(s"hello $name")` in Kotlin  `println("hello $name")`.
+- String interpolation, it is similar to Scala except that you don't need to use 's' character before the opening quote. In Scala `println(s"hello $name")` in Kotlin  `println("hello $name")`.
 - Files are indented at four spaces compared to Scala's two spaces.
 
 ## Inheritance
@@ -46,12 +46,12 @@ fun Colour.french(): String = when (this) {
     is Colour.Orange -> "Orange"
 }
 ```
-Intellij IDEA will give you the option to fill all the options evaluating it to `TODO()`, which is similar Scala's `???`. or else, if you have implemented one of the options, and want to default on the rest.
+IntelliJ IDEA will give you the option to fill all the options evaluating it to `TODO()`, which is similar Scala's `???`. or else, if you have implemented one of the options, and want to default on the rest.
 
 ## Functions
 - we define a function using `fun` instead of `def`.
 - `return` can only be omitted for single expression functions, but not for block functions. Note, that other than that case, the last expression in a block is its result.
-- Functions can live at the root livel of any Kotlin file. There is no concept of package objects (as far as I have seen so far).
+- Functions can live at the root level of any Kotlin file. There is no concept of package objects (as far as I have seen so far).
 ```
 package ...
 
@@ -63,11 +63,11 @@ fun someFunction{
 ```
 
 ## Getters and Setters
-- If you have a Java class that has getters and setters for some property, i.e. `getSomeProperty` and `setSomeProperty`, Kotlin let's you use it as a property directly, instead of using the methods, i.e. `val x = instance.someProperty` and `instance.someProperty = someValue`.
+- If you have a Java class that has getters and setters for some property, i.e. `getSomeProperty` and `setSomeProperty`, Kotlin lets you use it as a property directly, instead of using the methods, i.e. `val x = instance.someProperty` and `instance.someProperty = someValue`.
 
 ### Custom getters
 
-I don't find the following code particulary useful, I would just use a method instead. Where I think something similar might shine is with setters, maybe.
+I don't find the following code particularly useful. I would just use a method instead. Where I think something similar might shine is with setters, maybe.
 ```kotlin
 val age: Int
     get() {
@@ -75,7 +75,7 @@ val age: Int
     }
 ```
 
-I believe in Scala, you can't tie a custom getter or setter to the same val/var. you will have a different private val, which you might call `_age` and then use two methods to get and set that variable as needed, I believe something in the lines of `def age:Int` and `def age_=(age:Int)`. I might be a big fuzzy on this, didn't use it since forever.
+I believe in Scala you can't tie a custom getter or setter to the same val/var. You will have a different private val, which you might call `_age` and then use two methods to get and set that variable as needed, I believe something in the lines of `def age:Int` and `def age_=(age:Int)`. I might be a bit fuzzy on this, didn't use it since forever.
 
 ## Iterators
 
@@ -86,7 +86,7 @@ for (i in 100 downTo 0 step 2){
     // Do something
 }
 ```
-The count up with no step is simpler `for (i in 0..10)`, again both 0 and 10 are included.
+The count up with no step is simpler `for (i in 0..10)`, again both 0 and ten are included.
 Interestingly you can also use `for(c in 'A'..'Z')`
 
 ### Iterating over maps
@@ -137,7 +137,7 @@ val String.numberOfBs: Int
 ```
 
 ### Companion object
-Scala requires a companion object to have the same name as its companion class and it has to be in the same file. In Kotlin however it is required to be within the class and use the keywords `companion object`. Object name in that case is optional, which makes things a bit interesting. And finally you can have only one companion object within your class.
+Scala requires a companion object to have the same name as its companion class, and it has to be in the same file. In Kotlin however it is required to be within the class and use the keywords `companion object`. Object name, in that case, is optional, which makes things a bit interesting. And finally, you can have only one companion object within your class.
 
 ```kotlin
 data class Items(val items: List<Int>) {
@@ -174,7 +174,7 @@ println(Items.fromString("1,2,3").items.first()) // valid
 println(Items.Builder.fromString("1,2,3").items.first()) // valid and does the same thing
 ```
 
-It seems that the primary difference between the two approaches (having or omitting the companion object name) is how you call it from Java. Without explicit naming you would use `Items.Companion.fromString(...)` with the name, you'd use `Items.Builder.fromString(...)`.
+It seems that the primary difference between the two approaches (having or omitting the companion object name) is how you call it from Java. Without explicit naming, you would use `Items.Companion.fromString(...)` with the name, you'd use `Items.Builder.fromString(...)`.
 
 Extending a companion object:
 
@@ -199,7 +199,7 @@ println("The longest name is: ${names.maxBy(String::length)}")
 ```
 
 ## Option Type (nullable)
-Kotlin doesn't have option type. It has what I might consider a better alternative. if you try this in Kotlin the compiler will scream right at you, you just can't do it:
+Kotlin doesn't have option type. It has what I might consider a better alternative. If you try this in Kotlin the compiler will scream right at you. You just can't do it:
 ```kotlin
 val x:String = null
 ```
@@ -207,15 +207,15 @@ But how do you manage `null` or in Scala type `Option` which can be `Some` or `N
 ```kotlin
 val x:String? = null
 ```
-By adding `?` after your type on declaration, it let's the compiler know that you have no clue. Using the analogy to Scala. This is like declaring an `Option` which maybe hold a value (i.e. `Some`) or be `null` (i.e. `None`)
+By adding `?` after your type on declaration, it lets the compiler know that you have no clue. Using the analogy to Scala. This is like declaring an `Option` which maybe hold a value (i.e. `Some`) or be `null` (i.e. `None`)
 
-The following wil still return a nullable, but you are forced to do the null check
+The following will still return a nullable, but you are forced to do the null check
 
 ```kotlin
 val stillNullable:String? = if (nullableVariable != null) nullableVariable.toUpperCase() else null
 ```
 
-This pattern is so common that it has its own operator, this is exactly equivelant to
+This pattern is so common that it has its own operator, this is exactly equivalent to
 ```kotlin
 val stillNullable:String? = nullableVariable?.toUpperCase()
 ```
@@ -225,19 +225,19 @@ We can use the `safe-call` operator to simulate something similar to mapping on 
 val stillNullable2: Int? = nullableVariable?.toUpperCase()?.dropLast(1)?.length
 ```
 
-You are probably asking... what about `getOrElse`. Well, Kotlin gave us the `elvis-operator` (you tell me!), which is `?:`
+You are probably asking... what about `getOrElse`. Well, Kotlin gave us the `Elvis-operator` (you tell me!), which is `?:`
 ```kotlin
 val notNullableAnyMore: String = nullableVariable?: "I can breath!"
 ```
 
-If for some reason, you rather have a null pointer exception. You can just use `!!` operator. Which feels like "I am insane let me do whatever I want". The following code will give you a lovely NP the variable is null.
+If for some reason, you rather have a null pointer exception. You can just use `!!` operator. Which feels like "I am insane, let me do whatever I want." The following code will give you a lovely NP the variable is null.
 ```kotlin
 val notNullableAnyMore2: String = nullableVariable!!.toUpperCase()
 ```
 
->Just a note, some people have the twisted tendancy to manage their program flow using unchecked exceptions. Please, don't be one of those.
+>Just a note, some people have the twisted tendency to manage their program flow using unchecked exceptions. Please, don't be one of those.
 
-How about something resimpling `foreach` on an option... Kotlin gave us `let`
+How about something resembling `foreach` on an option... Kotlin gave us `let`.
 
 ```kotlin
 nullable?.let {notNullable -> doSomething(notNullable)}
@@ -252,13 +252,13 @@ and
 nullableVariable.let{ println(it)}
 ```
 
-Final interesting thing. if you have a value that will be initialized evantually, but not in the constructor. For an example via a dependency injection framework or due to framework limitations. you can use `lateinit` on declaration instead of using `!!` everywhere. That is basically your usual Java behaviour.
+Final interesting thing. If you have a value that will be initialized eventually, but not in the constructor. For example via a dependency injection framework or due to framework limitations. You can use `lateinit` on declaration instead of using `!!` everywhere. That is your usual Java behaviour.
 
 ```kotlin
 lateinit var varName:String
 ```
 
-In Scala we used to wrap values coming from Java libraries in an Option when we know that it might be null. Kotlin has a similar approach
+In Scala, we used to wrap values coming from Java libraries in an Option when we know that it might be null. Kotlin has a similar approach
 ```kotlin
 val notTrusted: String? = JavaLibrary.nullableValue1
 val trusted: String = JavaLibrary.nullableValue2
@@ -269,4 +269,4 @@ JavaLibrary.nullableValue2.length
 
 The compiler will complain if it can detect that you are making an unsafe "trust" assumption, but it can't do that all the time. IntelliJ wasn't able to help there though.
 
-Final note all nullable types are subtype of `Any?` vs concrete types which are subtype of `Any`
+Final note all nullable types are a subtype of `Any?` vs concrete types which are a subtype of `Any`.

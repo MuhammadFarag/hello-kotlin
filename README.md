@@ -153,11 +153,10 @@ data class Items(val items: List<Int>) {
 
 data class Items(val items: List<Int>) {
 
-    fun playWithEmpty() {
+    fun playWithTest() {
         test()
         Builder.test()
     }
-
 
     companion object Builder {
         fun fromString(s: String): Items = Items(s.split(",").map { it.toInt() })

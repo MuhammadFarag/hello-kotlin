@@ -142,17 +142,6 @@ Scala requires a companion object to have the same name as its companion class, 
 ```kotlin
 data class Items(val items: List<Int>) {
 
-    val emptyItems = empty()
-    val anotherEmptyItems = Builder.empty()
-
-    companion object Builder {
-        fun fromString(s: String): Items = Items(s.split(",").map { it.toInt() })
-        fun empty(): Items = Items(listOf())
-    }
-}
-
-data class Items(val items: List<Int>) {
-
     fun playWithTest() {
         test()
         Builder.test()
